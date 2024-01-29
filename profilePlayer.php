@@ -5,7 +5,7 @@
 if (isset($_GET['UserId'])) {
     $playerId = $_GET['UserId'];
 
-if (isset($_POST['update'])){
+if (isset($_POST['update'])) {
                 print_r($_POST);
                 try {
                     //! doit etre dans le meme ordre que le '->execute' sinon ca inverse
@@ -47,6 +47,8 @@ if (isset($_POST['update'])){
     echo "Aucun ID de joueur fourni.";
 }
 ?>
+
+
 <form method="POST">
     <input type="text" value="<?= $playerDetails['Name'] ?>" name="Name" placeholder="Name">
     <input type="file" name="PictureUser">

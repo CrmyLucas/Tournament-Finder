@@ -1,7 +1,12 @@
 <h1>Player list</h1>
 
 
-
+<form class="adduser" method="POST">
+    <input type="text" name="Name" placeholder="Name"> 
+    <input type="text" name="Password" placeholder="Password">
+    <input type="Mail" name="Mail" placeholder="Mail">
+    <input type="submit" name="addUser" >
+</form>
 
 
 <!-- Boucle les resultats en style carte -->
@@ -19,7 +24,7 @@ foreach ($results as $result) { ?>
             </div>
             <a class="botn botn-yellow" href="INDEX.php?p=profilePlayer.php&UserId=<?php echo $result['UserId']; ?>">See More</a>
         </div>
-        
+
         <?php }?>
     </div>
 
