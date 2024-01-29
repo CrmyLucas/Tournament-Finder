@@ -14,3 +14,41 @@ li{
     display: inline-block;
 }
 
+h2{
+}
+
+.container{
+    width: 1200px;
+    background-color: rgb(0, 255, 115);
+}
+
+
+.carte {
+    
+    background-color: bisque;
+    width: 20%;
+    border: 2px black solid;
+    flex-wrap: wrap;
+    display: inline-block;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+}
+
+.botn{
+    background-color: rgb(250, 126, 126);
+    text-decoration: none;
+    color: black;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+
+
+
+
+
+
+
+
+
+
