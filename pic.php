@@ -64,6 +64,7 @@ try {
 }
 $results = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
+
 <!-- fIN requete select -->
 
 <form method="post" enctype="multipart/form-data">
