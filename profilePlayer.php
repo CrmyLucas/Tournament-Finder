@@ -9,16 +9,16 @@ if (isset($_GET['UserId'])) {
         print_r($_POST);
         try {
             //! doit etre dans le meme ordre que le '->execute' sinon ca inverse
-            $sql = "UPDATE user SET Name = ?, PictureUser = ?, Color = ? WHERE UserId = ?;";
+            $sql = "UPDATE user SET Name = ?, Color = ? WHERE UserId = ?;";
             $stmt = $bdd->prepare($sql);
             // On recupere le UserId pour changer le nom avec POST <!> NOM DES COLONNES <!>
-            $stmt->execute(array(strip_tags($_POST['Name']), strip_tags($_POST['PictureUser']), strip_tags($_POST['Color']), strip_tags($_GET['UserId'])));
+            $stmt->execute(array(strip_tags($_POST['Name']), strip_tags($_POST['Color']), strip_tags($_GET['UserId'])));
         } catch (Exception $e) {
             print "Erreur ! " . $e->getMessage() . "<br/>";
         }
     }
     // Effectuez une requête SQL pour obtenir les informations du joueur en fonction de l'ID
-    try {
+    try{
         $sql = "SELECT * FROM user WHERE UserId = :id";
         $stmt = $bdd->prepare($sql);
         $stmt->bindParam(':id', $playerId, PDO::PARAM_INT);
@@ -33,7 +33,9 @@ if (isset($_GET['UserId'])) {
             // var_dump($playerDetails);
 ?>
             <h2 style="box-shadow: 10px 10px 15px <?= $playerDetails['Color'] ?>;"><?= $playerDetails['Name'] ?></h2>
+            <img src=" uploads/<?= $playerDetails['PictureUser'] ?>" alt="">
             <p><?= $playerDetails['Mail'] ?></p>
+
 <?php
 
 
@@ -51,7 +53,6 @@ if (isset($_GET['UserId'])) {
 
 <form method="POST">
     <input type="text" value="<?= $playerDetails['Name'] ?>" name="Name" placeholder="Name">
-    <input type="file" name="PictureUser">
     <input type="color" name="Color">
     <input type="submit" name="update">
 </form>

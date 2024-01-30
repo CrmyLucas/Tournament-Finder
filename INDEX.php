@@ -11,9 +11,11 @@
 </head>
 
 <body>
+    <!-- appel Base de donnée -->
     <?php include('bdd.php');
+    // fin appel Base de donnée -->
 
-    // requete SELECT 
+    // requete SELECT UserId
     try {
         //rajouter where apres user pour chercher l'id d'un user en particulier (userId = 1)
         $sql = "SELECT UserId FROM user ;";
@@ -22,12 +24,14 @@
     } catch (Exception $e) {
         print "Erreur ! " . $e->getMessage() . "<br/>";
     }
-
     $usersNb = $stmt->rowCount();
+    // Fin requete SELECT 
+
     echo 'il y a: ' . $usersNb . ' utilisateurs';
 
     echo '<br>';
 
+    // Requete SELECT PostId
     try {
         //rajouter where apres user pour chercher l'id d'un user en particulier (userId = 1)
         $sql = "SELECT IdPost FROM post ;";
@@ -38,10 +42,12 @@
     }
 
     $postNb = $stmt->rowCount();
+    // Fin requete SELECT PostId 
+
     echo 'il y a: ' . $postNb . ' Posts';
 
 
-
+    // Requete SELECT Table user
     try {
         //rajouter where apres user pour chercher l'id d'un user en particulier (userId = 1)
         $sql = "SELECT * FROM user ;";
@@ -51,8 +57,9 @@
         print "Erreur ! " . $e->getMessage() . "<br/>";
     }
     ($results = $stmt->fetchAll(PDO::FETCH_ASSOC));
-
+    // Fin requete SELECT Table user 
     ?>
+
 
 
 
@@ -80,7 +87,7 @@
     ?>
 
 
-
+<!-- --------------------------------------------------------------Script JS ------------------------------------------------------------------------ -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 

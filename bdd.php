@@ -1,5 +1,5 @@
+<!-- se connecter a la base de données -->
 <?php
-//se connecter a la base de données
 try {
     $bdd = new PDO("mysql:host=localhost;dbname=testsite", "root", "");
     $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

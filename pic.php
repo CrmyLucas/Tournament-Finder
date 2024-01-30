@@ -30,14 +30,15 @@ if (isset($_POST['update'])) {
 
             if (in_array($extension, $extensionAllowed)) {
                 move_uploaded_file(str_replace(" ", "-", $_FILES['PictureUser']['tmp_name']), 'uploads/' . str_replace(" ", "-", $_FILES['PictureUser']['name']));
+                $imgdir = 'uploads/' . str_replace(" ", "-", $_FILES['PictureUser']['name']);
                 $uploadImgok = 1;
 
                 try {
                     //! doit etre dans le meme ordre que le '->execute'
-                    $sql = "UPDATE user SET Name = ?, PictureUser = ? WHERE UserId = 10 ;";
+                    $sql = "UPDATE user SET PictureUser = ? WHERE UserId = 13 ;";
                     $stmt = $bdd->prepare($sql);
                     // On recupere le UserId pour changer le nom avec POST <!> NOM DES COLONNES <!>
-                    $stmt->execute(array($_FILES['PictureUser']['name']));
+                    $stmt->execute(array($imgdir));
                 } catch (Exception $e) {
                     print "Erreur ! " . $e->getMessage() . "<br/>";
                 }
