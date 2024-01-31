@@ -20,18 +20,17 @@
                 <?php echo $result['Name'] ?>
             </div>
             <div>
-                <?php 
-                    //img test existe 
-                    // print_r(getimagesize($folder . $result['PictureUser']));
-                    // le Arobase sert a enlever l'erreur quand il n'y a pas de fichier
-                    if (@is_array( getimagesize($result['PictureUser']))){
-                        echo '<img width="124" src="' . $result['PictureUser'] . '" alt="">';
-                        // echo 'img ok';
-                    }
-                    else{
-                        echo '<img width="124" src="uploads/avatar.jpg" alt="">';
-                        // echo 'img not ok';
-                    }
+                <?php
+                //img test existe 
+                // print_r(getimagesize($folder . $result['PictureUser']));
+                // le Arobase sert a enlever l'erreur quand il n'y a pas de fichier
+                if (@is_array(getimagesize($result['PictureUser']))) {
+                    echo '<img width="124" src="' . $result['PictureUser'] . '" alt="">';
+                    // echo 'img ok';
+                } else {
+                    echo '<img width="124" src="uploads/avatar.jpg" alt="">';
+                    // echo 'img not ok';
+                }
                 ?>
             </div>
             <div class="carte-text">
